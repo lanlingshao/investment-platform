@@ -1,3 +1,5 @@
+[TOC]
+
 # investment-platform
 
 A personal investment research platform for systematic financial data collection, factor computation, valuation analysis, stock screening, alerts, and investment research workflows.
@@ -483,4 +485,148 @@ The objective is not to automate investment decisions, but to provide infrastruc
 
 ## Screenshots
 
+### Investment Research Console
 
+![](docs/screenshots/dashboard.png)
+
+---
+
+### Stock Screening
+
+![](docs/screenshots/screener.jpg)
+
+---
+### Stock Comparison
+
+![](docs/screenshots/security-pk1.png)
+![](docs/screenshots/security-pk2.png)
+
+---
+### Alert Rules
+
+![](docs/screenshots/alert-rule-list.png)
+![](docs/screenshots/alert-rule-detail.png)
+
+## Engineering Highlights
+
+### Financial data infrastructure
+
+Designed a multi-source asynchronous financial data collection layer with source selection, rate limiting, retry, and fallback mechanisms.
+
+### Factor dependency management
+
+Built a factor computation engine based on DAG dependencies to represent relationships between financial and valuation indicators and avoid unnecessary duplicate computation.
+
+### Event-driven architecture
+
+Connected data collection and factor computation with an asynchronous Kafka event pipeline, separating event infrastructure from investment-specific rule processing.
+
+### Research-oriented domain modeling
+
+Modeled investment concepts such as:
+
+- tags
+- scores
+- indicators
+- screening conditions
+- alert rules
+- stock comparison
+
+as explicit domain concepts rather than embedding them directly into UI logic.
+
+### Workflow orchestration
+
+Used Prefect to orchestrate data collection, factor computation, backfills, and scheduled research workflows.
+
+### Separation of infrastructure and investment logic
+
+Reusable infrastructure has been extracted into independent open-source projects, while investment-specific factor logic, rule logic, and research workflows remain within the private application.
+
+### Technology Stack
+
+| Layer                  | Technology                                          |
+| ---------------------- | --------------------------------------------------- |
+| Language               | Python                                              |
+| API                    | FastAPI                                             |
+| Database               | MySQL                                               |
+| Analytical Database    | ClickHouse                                          |
+| Cache                  | Redis                                               |
+| Message Broker         | Kafka                                               |
+| Event Processing       | eventflow                                           |
+| Data Access            | SQLAlchemy / asyncmy / clickhouse-connect / daokit  |
+| Data Collection        | fin-data-kit                                        |
+| Workflow Orchestration | Prefect                                             |
+| Frontend               | React / Ant Design                                  |
+| Reverse Proxy          | Nginx                                               |
+
+---
+
+## Project Structure
+
+The private application is organized around several major domains:
+
+```
+investment-platform/ 
+│ 
+├── data/ 
+│   └── financial data collection 
+│ 
+├── factor/ 
+│   └── factor computation engine 
+│ 
+├── event/ 
+│   └── event processing and alerts 
+│ 
+├── rule/ 
+│   └── investment rule engine 
+│ 
+├── research/ 
+│   └── research domain services 
+│   
+├── admin/ 
+│   └── investment research console 
+│ 
+└── workflow/ 
+    └── Prefect workflows
+```
+
+The exact implementation is intentionally not included in this repository.
+
+--- 
+
+## Project Status
+
+The platform is an ongoing personal research system.
+
+Current capabilities include:
+
+- Multi-source financial data collection
+- Financial data storage
+- Fundamental and valuation factor computation
+- Factor dependency DAG
+- Kafka-based event processing
+- Stock and tag-based alert rules
+- Investment research tags
+- Stock scoring
+- Research indicators
+- Stock screening
+- Stock comparison
+- Scheduled and manual workflows
+
+The system continues to evolve as new research requirements are identified.
+
+---
+
+## Open-source Philosophy
+
+The platform itself is a domain-specific investment research application, while several infrastructure components have been extracted into independent libraries.
+
+This separation allows reusable engineering components to evolve independently from investment-specific research logic.
+
+Open-source projects:
+
+- [daokit](https://github.com/lanlingshao/daokit)
+- [fin-data-kit](https://github.com/lanlingshao/fin-data-kit)
+- [eventflow](https://github.com/lanlingshao/eventflow)
+
+The private application demonstrates how these infrastructure components can be composed into a larger financial research system.
