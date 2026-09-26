@@ -2,58 +2,59 @@
 
 # investment-platform
 
-A personal investment research platform for systematic financial data collection, factor computation, valuation analysis, stock screening, alerts, and investment research workflows.
+A personal investment research platform for fundamental and value-oriented equity research.
 
-The platform is designed for fundamental and value-oriented equity research. It connects financial data, factor computation, valuation metrics, screening rules, alerts, and research workflows into a unified system.
+The platform integrates:
 
-> **Note**: investment-platform is a private project. The core application source code is not open-sourced. Several reusable infrastructure components extracted from the platform are available as independent open-source projects.
+- **Financial Data** — multi-source market and fundamental data collection
+- **Factor Engine** — fundamental, valuation, and derived factors
+- **Event & Alerts** — event-driven investment rule processing
+- **Research Console** — screening, scoring, comparison, and research workflows
+
+
+```
+Financial Sources 
+        │ 
+        ▼ 
+┌─────────────────┐ 
+│ Data Collection │ ← fin-data-kit 
+└────────┬────────┘ 
+         ▼ 
+┌─────────────────┐ 
+│ MySQL / 
+│                 
+│ ClickHouse      │ 
+└────────┬────────┘ 
+         ▼ 
+┌─────────────────┐ 
+│ Factor Engine   │ 
+│ Factor DAG      │ 
+└────────┬────────┘ 
+         │ Kafka 
+         ▼ 
+┌─────────────────┐ 
+│ Event Processing│ ← eventflow 
+└────────┬────────┘ 
+         ▼ 
+┌─────────────────┐ 
+│ Research Console│ 
+│ Screening       │ 
+│ Scoring         │ 
+│ Comparison      │ 
+│ Alerts          │ 
+└─────────────────┘
+```
+
+> It is **Private project.** The core application is not open-sourced. Reusable infrastructure extracted from the platform is available as independent open-source projects.
+
+**Open-source infrastructure**
+
+
+- [daokit](https://github.com/lanlingshao/daokit)
+- [fin-data-kit](https://github.com/lanlingshao/fin-data-kit)
+- [eventflow](https://github.com/lanlingshao/eventflow)
 
 ---
-
-## Overview
-
-The platform covers the complete research data flow:
-
-```
-Financial Data 
-        │
-        ▼ 
-Data Collection 
-        │
-        ▼ 
-Data Storage 
-        │
-        ▼ 
-Factor Engine 
-        │
-        ▼ 
-        ├── Valuation Factors 
-        ├── Profitability Factors 
-        ├── Financial Factors 
-        └── Derived Factors 
-        │
-        ▼ 
- Event & Alert System 
-        │
-        ▼ 
- Investment Research Console 
-        ├── Stock Screening 
-        ├── Stock Scoring 
-        ├── Valuation Analysis 
-        ├── Stock Comparison 
-        ├── Alerts 
-        └── Research Tags
-```
-
-The system is intended to make investment research more systematic and reproducible by separating:
-- financial data acquisition
-- data storage
-- factor computation
-- investment rules
-- screening and scoring
-- alerts
-- research workflows
-
 ## System Architecture
 
 The platform is organized into several major subsystems:
@@ -61,6 +62,39 @@ The platform is organized into several major subsystems:
 ![](diagrams/system-architecture.png)
 
 The architecture separates infrastructure concerns from investment-specific business logic.
+
+
+## Core Workflow
+
+```
+Financial Data 
+      │ 
+      ▼ 
+Data Collection ──► Data Storage 
+      │ 
+      ▼ 
+Factor Engine 
+      │ 
+      ├── Valuation 
+      ├── Profitability 
+      ├── Financial 
+      └── Derived Factors 
+      │ 
+      ▼ 
+Event & Alert System 
+      │ 
+      ▼ 
+Investment Research Console 
+      ├── Screening 
+      ├── Scoring 
+      ├── Valuation Analysis 
+      ├── Stock Comparison 
+      ├── Alerts 
+      └── Research Tags
+```
+
+The platform separates data acquisition, factor computation, investment rules, screening, alerts, and research workflows to make investment research more systematic and reproducible.
+
 
 ## Core Components
 ### 1. Financial Data Collection
