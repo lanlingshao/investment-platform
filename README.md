@@ -1,5 +1,3 @@
-[TOC]
-
 # investment-platform
 
 A personal investment research platform for fundamental and value-oriented equity research.
@@ -85,6 +83,7 @@ For example:
 Application 
     │ 
     │ request: daily_kline 
+    │ 
     ▼ fin-data-kit 
     │ 
     ├── Primary Source 
@@ -201,7 +200,7 @@ The separation between event transport and investment rules allows the event inf
 
 The research console provides the main interface for interacting with the investment research system.
 
-**Research Tags**
+**4.1 Research Tags**
 
 Stocks can be organized using research-oriented tags.
 
@@ -219,7 +218,7 @@ Tags can also be used as inputs to screening and alert rules.
 
 ---
 
-**Stock Scoring**
+**4.2 Stock Scoring**
 
 The platform supports stock scoring and research indicators.
 
@@ -240,7 +239,7 @@ Company
 
 ---
 
-**Custom Research Indicators**
+**4.3 Custom Research Indicators**
 
 The indicator system supports both system-defined and user-defined research indicators.
 
@@ -276,7 +275,7 @@ The same indicator can then be reused across different research workflows, inclu
 
 --- 
 
-**Stock Screener**
+**4.4 Stock Screener**
 
 The stock screener supports filtering stocks using combinations of:
 
@@ -304,7 +303,7 @@ The purpose is to transform investment ideas into explicit, repeatable screening
 
 ---
 
-**Stock Comparison**
+**4.5 Stock Comparison**
 
 The platform provides a stock comparison interface for comparing companies across multiple indicators.
 
@@ -321,7 +320,7 @@ This is intended to support comparative research rather than replacing fundament
 
 ---
 
-**Alerts**
+**4.6 Alerts**
 
 The alert interface allows investment rules to be configured and monitored.
 
