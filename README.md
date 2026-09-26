@@ -8,6 +8,7 @@ The platform integrates:
 
 - **Financial Data** — multi-source market and fundamental data collection
 - **Factor Engine** — fundamental, valuation, and derived factors
+- **Custom Research Indicators** — user-defined indicators for screening, stock comparison, and alerts
 - **Event & Alerts** — event-driven investment rule processing
 - **Research Console** — screening, scoring, comparison, and research workflows
 
@@ -62,38 +63,6 @@ The platform is organized into several major subsystems:
 ![](diagrams/system-architecture.png)
 
 The architecture separates infrastructure concerns from investment-specific business logic.
-
-
-## Core Workflow
-
-```
-Financial Data 
-      │ 
-      ▼ 
-Data Collection ──► Data Storage 
-      │ 
-      ▼ 
-Factor Engine 
-      │ 
-      ├── Valuation 
-      ├── Profitability 
-      ├── Financial 
-      └── Derived Factors 
-      │ 
-      ▼ 
-Event & Alert System 
-      │ 
-      ▼ 
-Investment Research Console 
-      ├── Screening 
-      ├── Scoring 
-      ├── Valuation Analysis 
-      ├── Stock Comparison 
-      ├── Alerts 
-      └── Research Tags
-```
-
-The platform separates data acquisition, factor computation, investment rules, screening, alerts, and research workflows to make investment research more systematic and reproducible.
 
 
 ## Core Components
@@ -271,13 +240,39 @@ Company
 
 ---
 
-**Indicators**
+**Custom Research Indicators**
 
 The indicator system supports both system-defined and user-defined research indicators.
 
 System indicators are generated from the factor engine, while user-defined indicators can be constructed from existing data and mathematical expressions.
 
-This allows the research console to expose investment concepts without tightly coupling the UI to the underlying factor implementation.
+```text
+                    Research Indicators
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+        Stock Screener   Stock PK     Alert Rules
+```
+
+For example:
+```
+Financial Indicators
+        +
+Valuation Indicators
+        +
+User-defined Expressions
+        │
+        ▼
+Custom Research Indicator
+        │
+        ├── Stock Screening
+        ├── Stock Comparison
+        └── Alert Rules
+```
+
+This allows an investment idea to be expressed as a reusable, computable research indicator rather than remaining only as a manual observation.
+
+The same indicator can then be reused across different research workflows, including screening, stock comparison, and alert monitoring.
 
 --- 
 
@@ -435,85 +430,6 @@ Repository:
 
 [https://github.com/lanlingshao/eventflow](https://github.com/lanlingshao/eventflow)
 
----
-
-## Data & Event Flow
-
-A simplified end-to-end workflow:
-
-```
-            ┌──────────────────┐ 
-            │ Financial Sources│ 
-            └────────┬─────────┘ 
-                     │ 
-                     ▼ 
-            ┌──────────────────┐ 
-            │ Data Collector   │ 
-            │ fin-data-kit     │ 
-            └────────┬─────────┘ 
-                     │ 
-                     ▼ 
-            ┌──────────────────┐ 
-            │ MySQL/ClickHouse │ 
-            └────────┬─────────┘ 
-                     │ 
-                     ▼ 
-            ┌──────────────────┐ 
-            │ Factor Engine    │ 
-            │                  │ 
-            │ Factor DAG       │ 
-            └────────┬─────────┘ 
-                     │ 
-                     │ Kafka 
-                     ▼ 
-            ┌──────────────────┐ 
-            │ eventflow        │ 
-            │ Event Processing │ 
-            └────────┬─────────┘ 
-                     │
-                     ▼ 
-            ┌──────────────────┐ 
-            │ Rule Engine      │ 
-            └────────┬─────────┘ 
-                     │ 
-        ┌────────────┴────────────┐ 
-        ▼                         ▼ 
-Stock Screening                 Alerts 
-        │                         │ 
-        └────────────┬────────────┘ 
-                     ▼ 
-             Investment Research 
-                  Console
-```
-
----
-
-## Research Workflow
-
-The platform is designed around a repeatable research workflow:
-
-```
-Market / Financial Data 
-          ↓ 
-    Data Cleaning 
-          ↓ 
-  Factor Computation 
-          ↓ 
-Historical Analysis 
-          ↓ 
-   Stock Screening 
-          ↓ 
- Company Comparison 
-          ↓ 
-    Research Tags / Scores 
-          ↓ 
-      Monitoring 
-          ↓ 
-        Alerts
-
-```
-
-The objective is not to automate investment decisions, but to provide infrastructure for systematic research and monitoring.
 
 ---
 
@@ -648,6 +564,21 @@ Current capabilities include:
 - Scheduled and manual workflows
 
 The system continues to evolve as new research requirements are identified.
+
+---
+
+## Future Roadmap
+
+The platform is continuously evolving as new research requirements are identified.
+
+Planned areas include:
+
+* **Company Research** — structured company research, business quality, competitive advantages, management, and other qualitative research dimensions
+* **Industry Research** — industry structure, industry trends, competitive landscape, and industry-level analysis
+* **Financial Report Research** — deeper analysis of financial statements and earnings reports
+* **AI-assisted Research** — using AI to improve financial data interpretation, company research, report analysis, and research workflow efficiency
+
+The long-term goal is to combine **structured financial data, quantitative indicators, qualitative research, and AI-assisted workflows** into a unified investment research system.
 
 ---
 
