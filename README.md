@@ -5,43 +5,44 @@ A personal investment research platform for fundamental and value-oriented equit
 The platform integrates:
 
 - **Financial Data** — multi-source market and fundamental data collection
-- **Factor Engine** — fundamental, valuation, and derived factors
+- **Factor Engine** — DAG-based fundamental and valuation factor computation with distributed parallel execution
 - **Custom Research Indicators** — user-defined indicators for screening, stock comparison, and alerts
-- **Event & Alerts** — event-driven investment rule processing
+- **Event & Alerts** — Kafka-based event processing with partitioned, parallel consumption and investment-rule evaluation
 - **Research Console** — screening, scoring, comparison, and research workflows
 
 
 ```
-Financial Sources 
-        │ 
-        ▼ 
-┌─────────────────┐ 
-│ Data Collection │ ← fin-data-kit 
-└────────┬────────┘ 
-         ▼ 
-┌─────────────────┐ 
-│ MySQL / 
-│                 
-│ ClickHouse      │ 
-└────────┬────────┘ 
-         ▼ 
-┌─────────────────┐ 
-│ Factor Engine   │ 
-│ Factor DAG      │ 
-└────────┬────────┘ 
-         │ Kafka 
-         ▼ 
-┌─────────────────┐ 
-│ Event Processing│ ← eventflow 
-└────────┬────────┘ 
-         ▼ 
-┌─────────────────┐ 
-│ Research Console│ 
-│ Screening       │ 
-│ Scoring         │ 
-│ Comparison      │ 
-│ Alerts          │ 
-└─────────────────┘
+       Financial Sources 
+              │ 
+              ▼ 
+┌─────────────────────────────┐ 
+│       Data Collection       │ ← fin-data-kit 
+└─────────────┬───────────────┘            
+              ▼ 
+┌─────────────────────────────┐ 
+│     MySQL / ClickHouse      │
+└─────────────┬───────────────┘ 
+              ▼ 
+┌─────────────────────────────┐ 
+│      Factor Engine          │ 
+│      Dependency DAG         │ 
+│ Distributed Parallel Tasks  │ 
+└─────────────────────────────┘ 
+              │ Kafka 
+              ▼ 
+┌─────────────────────────────┐ 
+│      Event Processing       │ 
+│  Consumer Group / Parallel  │ ← eventflow 
+│   Event & Rule Processing   │ 
+└────────────┬────────────────┘
+             ▼ 
+┌─────────────────────────────┐ 
+│     Research Console        │
+│        Screening            │
+│         Scoring             │
+│        Comparison           │
+│          Alerts             │
+└─────────────────────────────┘
 ```
 
 > It is **Private project.** The core application is not open-sourced. Reusable infrastructure extracted from the platform is available as independent open-source projects.
@@ -153,11 +154,25 @@ Market Data ──────────────┐
 
 The DAG allows dependent factors to be calculated in the correct order while avoiding unnecessary duplicate computation.
 
-The factor engine is intentionally kept inside the private project because it contains investment-specific research logic.
+**Distributed and parallel execution**
+- Represents factor dependencies explicitly so prerequisite factors are completed before dependent factors run.
+- Enables independent factor tasks to be scheduled concurrently when their dependencies are satisfied.
+- Supports decomposing suitable workloads by factor, security, or time range, allowing historical calculations and incremental updates to use parallel workers.
+- Keeps task orchestration separate from factor calculation logic, making execution capacity easier to scale as data volume grows.
+
+Actual parallelism depends on task granularity, dependency constraints, worker capacity, and the storage layer.
 
 ### 3. Event & Alert System
 
-The alert subsystem connects the data pipeline and factor engine with investment rules.
+The alert subsystem connects the data pipeline and factor engine with investment rules. It uses Kafka as the event transport layer and supports parallel event processing through partitioned topics and consumer-group workers, subject to Kafka partitioning and ordering constraints.
+
+**Distributed and parallel event processing**
+- Uses Kafka partitions and consumer groups as the basis for distributing event consumption across workers.
+- Allows independent events or partitions to be processed concurrently, increasing processing capacity by adding consumers where partition count and workload permit.
+- Keeps event transport, batch consumption, and failure handling separate from application-specific investment-rule evaluation.
+- Supports rule evaluation for stock-based, tag-based, and indicator-based conditions as events arrive.
+
+Ordering is guaranteed only within the relevant Kafka partition; consumers and handlers should be designed for retries and duplicate delivery where applicable.
 
 The event flow is approximately:
 ```
@@ -462,13 +477,13 @@ Repository:
 
 Designed a multi-source asynchronous financial data collection layer with source selection, rate limiting, retry, and fallback mechanisms.
 
-### Factor dependency management
+### Factor dependency management and distributed parallel computation
 
-Built a factor computation engine based on DAG dependencies to represent relationships between financial and valuation indicators and avoid unnecessary duplicate computation.
+Built a DAG-based factor computation engine to model dependencies between financial and valuation indicators, calculate prerequisites in the correct order, avoid unnecessary duplicate computation, and support parallel execution of independent or partitionable workloads across workers.
 
-### Event-driven architecture
+### Distributed event processing
 
-Connected data collection and factor computation with an asynchronous Kafka event pipeline, separating event infrastructure from investment-specific rule processing.
+Connected data collection and factor computation through an asynchronous Kafka event pipeline. Partitioned consumption and consumer-group workers allow eligible events to be processed concurrently, while reusable event infrastructure remains separate from investment-specific rule processing.
 
 ### Research-oriented domain modeling
 
@@ -482,6 +497,10 @@ Modeled investment concepts such as:
 - stock comparison
 
 as explicit domain concepts rather than embedding them directly into UI logic.
+
+### Scalable execution and workload orchestration
+
+Designed compute and event-processing paths around separable tasks: the factor DAG coordinates dependencies while allowing independent work to run concurrently, and Kafka partitioning enables parallel event consumption across consumer workers. Prefect orchestrates data collection, factor computation, backfills, and scheduled research workflows.
 
 ### Workflow orchestration
 
@@ -552,8 +571,8 @@ Current capabilities include:
 - Multi-source financial data collection
 - Financial data storage
 - Fundamental and valuation factor computation
-- Factor dependency DAG
-- Kafka-based event processing
+- Factor dependency DAG with distributed parallel execution
+- Kafka-based event processing with partitioned, parallel consumption
 - Stock and tag-based alert rules
 - Investment research tags
 - Stock scoring
