@@ -1,0 +1,133 @@
+<mxfile host="Electron">
+  <diagram name="第 1 页" id="CtJMnYAx71lBp6DM9bOi">
+    <mxGraphModel dx="1613" dy="1218" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=28;fontStyle=1;fontColor=#17365D;align=center;verticalAlign=middle;" value="投资研究平台 · 系统架构" vertex="1">
+          <mxGeometry height="50" width="560" x="840" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF4FF;strokeColor=#5B9BD5;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#17365D;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="" vertex="1">
+          <mxGeometry height="100" width="1560" x="350" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=15;fontColor=#333333;align=center;verticalAlign=middle;" value="&lt;font&gt;&lt;b&gt;研究仪表盘（Web）&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;标签 / 评分 / 规则 / 筛选 / 股票分析&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="390" x="730" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=15;fontColor=#333333;align=center;verticalAlign=middle;" value="&lt;font&gt;&lt;b style=&quot;&quot;&gt;研究人员&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;股票分析 / 因子分析 / 股票筛选&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="400" x="1353" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3F1FF;strokeColor=#8E82E8;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#44358C;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="" vertex="1">
+          <mxGeometry height="210" width="1560" x="350" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=default;fontSize=13;fontColor=#332B68;align=left;verticalAlign=top;spacing=12;shadow=1;" value="&lt;b&gt;研究仪表盘&lt;/b&gt;&lt;br&gt;• 标签管理（增删改查）&lt;br&gt;• 评分管理（增删改查）&lt;br&gt;• 股票评分&lt;br&gt;• 预警规则配置&lt;br&gt;• 指标管理（增删改查）&lt;br&gt;• 股票筛选 / 股票对比" vertex="1">
+          <mxGeometry height="150" width="270" x="590" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=default;fontSize=13;fontColor=#332B68;align=left;verticalAlign=top;spacing=12;glass=0;shadow=1;" value="&lt;b&gt;因子计算引擎&lt;/b&gt;&amp;nbsp;&lt;div&gt;（闭源）&lt;br&gt;• 因子定义 &amp;amp; Management&lt;br&gt;• 因子有向无环图（DAG）&lt;br&gt;• Dependency Calculation &amp;amp; Scheduling&lt;br&gt;• 因子快照存储&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="250" x="895" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9B91E8;fontSize=13;fontColor=#332B68;align=left;verticalAlign=top;spacing=12;shadow=1;" value="&lt;b&gt;预警系统&lt;/b&gt;&lt;br&gt;• 事件处理&lt;br&gt;• 规则引擎&lt;br&gt;• 股票 / 标签规则&lt;br&gt;• 预警通知" vertex="1">
+          <mxGeometry height="150" width="180" x="1179" y="537.5" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9B91E8;fontSize=13;fontColor=#332B68;align=left;verticalAlign=top;spacing=12;shadow=1;" value="&lt;b&gt;数据采集系统&lt;/b&gt;&lt;br&gt;• 股票基础信息&lt;br&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(51, 43, 104), rgb(197, 190, 242));&quot;&gt;•&amp;nbsp;&lt;/span&gt;日线数据&lt;br&gt;• 财务报表&lt;br&gt;• 股本数据&lt;/div&gt;&lt;div&gt;• 交易日历&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(51, 43, 104), rgb(197, 190, 242));&quot;&gt;•&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(51, 43, 104), rgb(197, 190, 242));&quot;&gt; &lt;/span&gt;Dividend &amp;amp; Distribution&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(51, 43, 104), rgb(197, 190, 242));&quot;&gt;•&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(51, 43, 104), rgb(197, 190, 242));&quot;&gt; &lt;/span&gt;行业分类&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="240" x="1400" y="537.5" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9B91E8;fontSize=13;fontColor=#332B68;align=left;verticalAlign=top;spacing=12;shadow=1;" value="&lt;b&gt;任务调度&lt;/b&gt;&lt;br&gt;&lt;b&gt;Prefect&lt;/b&gt;&lt;br&gt;• 爬虫任务调度&lt;br&gt;• 因子计算调度&lt;br&gt;• 任务监控" vertex="1">
+          <mxGeometry height="150" width="190" x="1680" y="537.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-9" edge="1" parent="1" source="V8NPzZgrQQAO8CnHpKij-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" target="V8NPzZgrQQAO8CnHpKij-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFFBF0;strokeColor=#45B85A;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#246B2E;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="" vertex="1">
+          <mxGeometry height="185" width="1120" x="350" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-5" edge="1" parent="1" source="V8NPzZgrQQAO8CnHpKij-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;" target="V8NPzZgrQQAO8CnHpKij-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5FF;strokeColor=#55A9DF;fontSize=14;fontColor=#15527A;align=left;verticalAlign=top;spacing=12;" value="&lt;b&gt;数据采集服务&lt;/b&gt;&lt;br&gt;基于 &lt;b&gt;fin-data-kit&lt;/b&gt;&lt;br&gt;• &lt;font style=&quot;font-size: 13px;&quot;&gt;数据源管理&lt;br&gt;• 限流 / 重试 / 故障切换&lt;br&gt;• 数据标准化&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="210" x="570" y="782.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-6" edge="1" parent="1" source="V8NPzZgrQQAO8CnHpKij-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V8NPzZgrQQAO8CnHpKij-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF8EA;strokeColor=#50B866;fontSize=14;fontColor=#246B2E;align=left;verticalAlign=top;spacing=12;" value="&lt;b&gt;因子计算服务&lt;/b&gt;&amp;nbsp;&lt;div&gt;（闭源）&lt;br&gt;• &lt;font style=&quot;font-size: 13px;&quot;&gt;因子定义&lt;br&gt;• DAG 执行&lt;br&gt;• 计算任务调度&lt;br&gt;• 结果存储&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="210" x="810" y="782.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-7" edge="1" parent="1" source="V8NPzZgrQQAO8CnHpKij-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="V8NPzZgrQQAO8CnHpKij-17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5E8;strokeColor=#F1A33C;fontSize=14;fontColor=#8A5410;align=left;verticalAlign=top;spacing=12;" value="&lt;b&gt;事件处理服务&lt;/b&gt;&lt;br&gt;基于 &lt;b&gt;eventflow&lt;/b&gt;&lt;br&gt;• &lt;font style=&quot;font-size: 13px;&quot;&gt;事件生产 / 消费&lt;br&gt;• 批量处理&lt;br&gt;• 故障处理&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="219" x="1050" y="782.5" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0F0;strokeColor=#E85B5B;fontSize=14;fontColor=#8B2727;align=left;verticalAlign=top;spacing=12;" value="&lt;b&gt;规则引擎&lt;/b&gt; （闭源）&lt;br&gt;• &lt;font style=&quot;font-size: 13px;&quot;&gt;股票规则&lt;br&gt;• 标签规则&lt;br&gt;• 规则匹配&lt;br&gt;• 触发预警&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="150" x="1300" y="782.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-12" edge="1" parent="1" source="V8NPzZgrQQAO8CnHpKij-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" target="V8NPzZgrQQAO8CnHpKij-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF9FC;strokeColor=#3AA7BD;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#176273;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="基础设施" vertex="1">
+          <mxGeometry height="185" width="190" x="1500" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E4F7E2;strokeColor=#82b366;fontSize=14;align=center;verticalAlign=middle;" value="&lt;b&gt;daokit&lt;/b&gt;&lt;br&gt;MySQL / ClickHouse&lt;br&gt;异步数据访问对象（DAO）&lt;br&gt;数据访问工具包" vertex="1">
+          <mxGeometry height="105" width="150" x="1518" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F0FF;strokeColor=#8D70D8;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#53378C;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="外部服务" vertex="1">
+          <mxGeometry height="185" width="190" x="1720" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A88CE2;fontSize=14;fontColor=#53378C;align=center;verticalAlign=middle;" value="&lt;b&gt;金融数据源&lt;/b&gt;&lt;br&gt;雪球 / 东方财富 / 证券交易所等" vertex="1">
+          <mxGeometry height="55" width="157" x="1737" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A88CE2;fontSize=14;fontColor=#53378C;align=center;verticalAlign=middle;" value="&lt;b&gt;通知服务&lt;/b&gt;&lt;br&gt;电子邮件" vertex="1">
+          <mxGeometry height="45" width="157" x="1737" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF6FF;strokeColor=#5AADE0;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#18547A;align=left;verticalAlign=middle;spacingLeft=18;" value="" vertex="1">
+          <mxGeometry height="75" width="1120" x="350" y="955" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5AADE0;fontSize=14;fontColor=#18547A;align=center;verticalAlign=middle;" value="&lt;b&gt;Kafka&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:12px&#39;&gt;因子 / K 线 / 预警事件&lt;/font&gt;" vertex="1">
+          <mxGeometry height="45" width="300" x="680" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5AADE0;fontSize=14;fontColor=#18547A;align=center;verticalAlign=middle;" value="&lt;b&gt;Redis&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;缓存 / 锁&lt;/font&gt;" vertex="1">
+          <mxGeometry height="45" width="300" x="1075" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F7FA;strokeColor=#9AA7B5;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#44515E;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="" vertex="1">
+          <mxGeometry height="100" width="1120" x="350" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7EA8D4;fontSize=14;fontColor=#334E68;align=center;verticalAlign=middle;" value="&lt;b&gt;MySQL&lt;/b&gt;&lt;br&gt;业务数据&lt;br&gt;规则 / 标签 / 用户数据" vertex="1">
+          <mxGeometry height="80" width="300" x="680" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A28BD5;fontSize=14;fontColor=#4C3D72;align=center;verticalAlign=middle;" value="&lt;b&gt;ClickHouse&lt;/b&gt;&lt;br&gt;因子数据 / 行情数据&lt;br&gt;大规模时序数据" vertex="1">
+          <mxGeometry height="80" width="300" x="1070" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-30" parent="1" style="rounded=0;dashed=1;whiteSpace=wrap;html=1;fillColor=#FAFCFF;strokeColor=#7895B2;strokeWidth=1.5;fontSize=18;fontStyle=1;fontColor=#34495E;align=left;verticalAlign=top;spacingLeft=18;spacingTop=12;" value="" vertex="1">
+          <mxGeometry height="100" width="1550" x="350" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7895B2;fontSize=14;fontColor=#34495E;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b style=&quot;&quot;&gt;fin-data-kit&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;font&gt;金融数据采集框架&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="300" x="680" y="1192.5" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7895B2;fontSize=14;fontColor=#34495E;align=center;verticalAlign=middle;" value="&lt;b&gt;eventflow&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:12px&#39;&gt;事件分发与处理框架&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="300" x="1075" y="1192.5" as="geometry" />
+        </mxCell>
+        <mxCell id="V8NPzZgrQQAO8CnHpKij-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7895B2;fontSize=14;fontColor=#34495E;align=center;verticalAlign=middle;" value="&lt;b&gt;daokit&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:12px&#39;&gt;数据访问工具包&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="300" x="1470" y="1192.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;用户层&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="200" x="350" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;span style=&quot;color: rgb(68, 53, 140); font-weight: 700; text-align: left;&quot;&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;应用层（研究平台）&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="210" width="200" x="350" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;span style=&quot;color: rgb(36, 107, 46); font-size: 18px; font-weight: 700; text-align: left;&quot;&gt;核心服务层（业务逻辑）&lt;/span&gt;" vertex="1">
+          <mxGeometry height="185" width="200" x="350" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF6FF;strokeColor=#36393d;" value="&lt;span style=&quot;color: rgb(68, 81, 94); font-size: 18px; font-weight: 700; text-align: left;&quot;&gt;数据存储层&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="200" x="350" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#36393d;" value="&lt;span style=&quot;color: rgb(52, 73, 94); font-size: 18px; font-weight: 700; text-align: left;&quot;&gt;基础设施层&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(52, 73, 94); font-weight: 700; text-align: left;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;（开源项目）&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="200" x="350" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="Gd3Ma20n5X5DbUtith9p-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF6FF;strokeColor=#36393d;" value="&lt;span style=&quot;color: rgb(68, 81, 94); font-size: 18px; font-weight: 700; text-align: left;&quot;&gt;数据存储层&lt;/span&gt;" vertex="1">
+          <mxGeometry height="75" width="200" x="350" y="955" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
