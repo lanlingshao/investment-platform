@@ -45,7 +45,7 @@ The platform integrates:
 └─────────────────────────────┘
 ```
 
-> It is **Private project.** The core application is not open-sourced. Reusable infrastructure extracted from the platform is available as independent open-source projects.
+> It is **Private project.** The core application has not completed, so it is not open-sourced. Reusable infrastructure extracted from the platform is available as independent open-source projects.
 
 **Open-source infrastructure**
 
